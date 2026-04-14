@@ -21,7 +21,7 @@ def load_assets():
     scaler = joblib.load('scaler.pkl')
 
     # Load Price Data
-    price_df = pd.read_csv('datasets/cleaned_price_data.csv')
+    price_df = pd.read_csv('cleaned_price_data.csv')
     price_df['County'] = price_df['County'].str.lower().str.strip()
 
     # Evaluation data
