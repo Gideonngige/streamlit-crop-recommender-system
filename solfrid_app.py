@@ -12,21 +12,21 @@ import seaborn as sns
 @st.cache_resource
 def load_assets():
     # Load LSTM and XGBoost models
-    model_lstm = tf.keras.models.load_model('../trained_models4/model_lstm.h5', compile=False) 
-    suit_model = joblib.load('../trained_models4/suitability_model.pkl') # Make sure you have this file!
+    model_lstm = tf.keras.models.load_model('model_lstm.h5', compile=False) 
+    suit_model = joblib.load('suitability_model.pkl') # Make sure you have this file!
 
     # Load Encoders and Scaler
-    crop_encoder = joblib.load('../trained_models4/crop_encoder.pkl')
-    county_encoder = joblib.load('../trained_models4/county_encoder.pkl')
-    scaler = joblib.load('../trained_models4/scaler.pkl')
+    crop_encoder = joblib.load('crop_encoder.pkl')
+    county_encoder = joblib.load('county_encoder.pkl')
+    scaler = joblib.load('scaler.pkl')
 
     # Load Price Data
-    price_df = pd.read_csv('../trained_models4/datasets/cleaned_price_data.csv')
+    price_df = pd.read_csv('datasets/cleaned_price_data.csv')
     price_df['County'] = price_df['County'].str.lower().str.strip()
 
     # Evaluation data
-    X_test = joblib.load('../trained_models4/X_test.pkl')
-    y_test = joblib.load('../trained_models4/y_test.pkl')
+    X_test = joblib.load('X_test.pkl')
+    y_test = joblib.load('y_test.pkl')
 
     # return model_lstm, suit_model, crop_encoder, county_encoder, scaler, price_df
     return model_lstm, suit_model, crop_encoder, county_encoder, scaler, price_df, X_test, y_test
