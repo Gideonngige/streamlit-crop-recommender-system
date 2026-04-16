@@ -276,7 +276,7 @@ def test_hybrid_system(county_name, temp, rain, ph, humidity):
                 final_recommendations.append({
                     "Crop": crop_name,
                     "Suitability": f"{item['Match_Score']}%",
-                    "Forecasted_Price (KES)": round(pred_price, 2),
+                    "Forecasted_Price (Ksh)": round(pred_price, 2),
                     "Market": market,
                     "Best Planting Time": planting_time,
                     "Index": round(suit_score * pred_price, 2)
@@ -327,7 +327,7 @@ if st.button("Get Crop Recommendations"):
                 f"""
                 🌱 **Best Crop: {top['Crop']}**
 
-                💰 Price: KES {top['Forecasted_Price (KES)']}  
+                💰 Price: Ksh. {top['Forecasted_Price (Ksh)']}  
                 🏪 Market: {top['Market']}  
                 📅 Planting Time: {top['Best Planting Time']}  
                 """
